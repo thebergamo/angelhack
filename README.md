@@ -1,4 +1,6 @@
-angelhack
+AngelHack: BURN ALL THE ROBOTS
 =========
 
-Hacking!
+<div style="text-align: center">
+    <img src="http://goo.gl/Qm80Oz" />
+</div>
