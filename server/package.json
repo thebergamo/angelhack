@@ -1,0 +1,19 @@
+{
+  "name": "bitify",
+  "version": "0.0.0",
+  "description": "Safe transactions for Bitcoin users.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Private",
+  "private": true,
+  "dependencies": {
+    "baucis": "^1.0.0-candidate.6",
+    "bitcore": "^0.1.23",
+    "express": "^4.1.2",
+    "mongoose": "^3.8.12",
+    "sendgrid": "^1.0.5"
+  }
+}
