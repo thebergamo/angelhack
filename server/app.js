@@ -10,6 +10,9 @@ var app = require(__dirname + '/lib/express');
 var config = require(__dirname + '/config/general.json');
 var mongoose = require('mongoose').connect(config.mongodb);
 
+// Carregando todas os models
+var models = requi(__dirname + '/model');
+
 // Carregando todas as APIs
 requi(__dirname + '/api');
 
