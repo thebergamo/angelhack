@@ -1,5 +1,9 @@
 {
     "port" : 8080,
     "mongodb" : "mongodb://localhost/bitify",
-    "salt" : "#]%,Q{L]RU;4 f]EV7e.}w!CAUhSe.WDWxy6plG;"
+    "salt" : "#]%,Q{L]RU;4 f]EV7e.}w!CAUhSe.WDWxy6plG;",    
+    "delivery":{
+        "sender":"clerigo-son@hotmail.com"
+    },
+    "url": "http://localhost:8080/"
 }
