@@ -45,9 +45,23 @@ var transactionSchema = new Schema({
     }
 });
 
+/*
+Status CODES:
+begin - transação iniciada;
+recive - recebeu pagamento;
+paid - pagamento confirmado;
+envoy - produto enviado;
+closed - transação finalizada;
+
+*/
+
 transactionSchema.post('save', function(next){
-    sendgrid(this._id, 'begin');
+    if('begin' === this.status)
+        sendgrid(this._id, 'begin');
+
 });
+
+
 
 transactionSchema.pre('save', function(next){
     if(!this._id)

@@ -4,6 +4,8 @@ var async = require('async');
 var request = require('request');
 var mongoose = require('mongoose');
 var io = require('socket.io-emitter')(config.redis);
+var Transaction = mongoose.model('transaction');
+var Message = mongoose.model('message');
 
 var bitQueue = async.queue(function(tx, callback){
     Transaction.findOne({'wallet.hash' : tx.address}, function(err, doc){
@@ -15,9 +17,18 @@ var bitQueue = async.queue(function(tx, callback){
         doc.value = tx.value;
         doc.buyer.wallet = tx.from;
 
+        //pagamento processando;
+        
+        doc.status = 'recive';
+
+
+
         doc.save(function(err){
             if(err)
                 throw err;
+
+            //verifica se tx.confirmations == 6
+
 
             io.to(doc.code).emit('update');
             callback();
@@ -41,7 +52,7 @@ io.on('tx', function(data){
                 tx : data.txid,
                 from : tx.vin[0].addr,
                 address : vout.scriptPubKey.addresses[0],
-                confirmations : tx.confirmations,
+                confirmations : tx.confirmations || 0,
                 value : vout.value
             });
         });

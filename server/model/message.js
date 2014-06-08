@@ -40,7 +40,6 @@ messageSchema.post('save', function(next){
 
             sendgrid(self.transaction_id, 'close');
 
-
             /*
             Liberar bitcoin.
             */
