@@ -3,7 +3,7 @@ var io = require('socket.io-client')(config.bitcoin);
 var async = require('async');
 var request = require('request');
 var mongoose = require('mongoose');
-var io = require('socket.io-emitter')(config.redis);
+var emitter = require('socket.io-emitter')(config.redis);
 
 var bitQueue = async.queue(function(tx, callback){
     Transaction.findOne({'wallet.hash' : tx.address}, function(err, doc){
@@ -19,7 +19,7 @@ var bitQueue = async.queue(function(tx, callback){
             if(err)
                 throw err;
 
-            io.to(doc.code).emit('update');
+            emitter.to(doc.code).emit('update');
             callback();
         });
     });
