@@ -46,8 +46,8 @@
                         <input type="text" class="form-control" ng-model="message.message" placeholder="">
                     </div>
                     <button type="button" class="btn btn-success btn-lg btn-block" ng-click="sendMessage()">Enviar mensagem</button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'seller'" ng-click="finalizar('O comprador marcou a tranzação como finalizada.')">Finalizar</button>
-                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'buyer'" ng-click="finalizar('O vendedor marcou a tranzação como finalizada.')">Finalizar</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'seller'" ng-click="finalizar('O vendedor marcou a transação como finalizada.')">Finalizar</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'buyer'" ng-click="finalizar('O comprador marcou a transação como finalizada.')">Finalizar</button>
                 </div>
             </div>
             <div class="col-lg-12" ng-hide="type">

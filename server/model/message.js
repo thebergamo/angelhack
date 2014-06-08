@@ -33,8 +33,26 @@ messageSchema.post('save', function(doc){
                 return;
 
             Transaction.findById(doc.transaction_id, function(err, tx){
+                if(err)
+                    throw err;
+
+                console.log('ENTREI AQUI', tx);
+
                 if(tx.status !== 'closed'){
-                    Transaction.findByIdAndUpdate(doc.transaction_id, { $set: { status: 'closed' }});
+
+                    Transaction.findById(doc.transaction_id, function(err, doc){
+                        if(err)
+                            throw err;
+
+                        doc.status = 'closed';
+                        doc.save(function(err){
+                            if(err)
+                                throw err;
+
+                            emitter.to(doc.transaction_id).emit('update');
+                        });
+                    });
+
                     sendgrid(doc.transaction_id, 'close');
                 }
             });

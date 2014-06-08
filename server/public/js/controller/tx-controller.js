@@ -22,6 +22,19 @@ app.controller('TxCtrl', ['$scope', '$http', '$routeParams', function($scope, $h
         });
     };
 
+    $scope.finalizar = function(msg){
+        var message = {
+            transaction_id : $scope.tx._id,
+            sender : 'system',
+            finished : true,
+            message : msg
+        };
+
+        $http.post('/api/messages', message).then(function(res){
+            console.log(res);
+        });
+    };
+
     $scope.doLogin = function(){
         $scope.type = $scope.loginType;
     };
