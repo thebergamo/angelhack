@@ -132,6 +132,7 @@ function mailBegin(id){
 }
 
 function mailExceed(id, id_message){
+
     //pegar model Transaction para pegar emails
     //pegar model Message para ver quem excedeu o tempo da carteira.
     var Transaction = mongoose.model('transaction');
