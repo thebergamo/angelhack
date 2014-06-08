@@ -1,0 +1,134 @@
+body{
+    background-image:url('/img/gramado2.jpg');
+    background-attachment: fixed;
+}
+h1, h2, h3, h4, h5, h6{
+    color: #FFFFFF;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-user-add {
+    max-width: 550px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin .checkbox {
+    font-weight: normal;
+}
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.footer-div-center {
+    max-width: 350px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.btn-xlg{
+    width: 100%;
+}
+
+.box{
+    height: 400px;
+}
+
+footer {
+    bottom: 0;
+    height: 50px;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+footer .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    color: #999;
+    text-align: center;
+}
+
+footer .navbar-inverse {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+footer span {
+    color: red;
+}
+
+footer strong {
+    color: white;
+}
+
+.navbar-brand {
+    padding: 0;
+    margin-top: 3px;
+    padding-left: 15px;
+    width: 180px;
+    font-size: 24px;
+    color: white;
+    font-weight: bolder;
+}
+
+.navbar-brand img {
+    float: left;
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-brand div {
+    float: left;
+    display: inline;
+    padding-top: 13px;
+}
+
+.modal-title {
+    color : black;
+}
+
+.bottom-fix {
+    margin-bottom: 60px;
+}
+
+.trim {
+    max-width: 245px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 15px;
+    position: relative;
+}
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

@@ -1,60 +1,39 @@
+window.$ = window.jQuery = require('./jquery');
+window.moment = require('./moment');
+require('./angular');
+require('./bootstrap.js');
+require('./qrcode.js');
+
+// Libs do angular
+require('./angular-ui-bootstrap');
+require('./angular-route');
+require('./angular-moment');
+require('./angular-qrcode');
+
+// Outras libs
+require('./socket');
+
 // Iniciando uma app com o Angular.js
-window.app = angular.module('app', ['ngRoute', 'angularMoment', 'ui.bootstrap']);
+window.app = angular.module('app', ['ngRoute', 'angularMoment', 'ui.bootstrap', 'monospaced.qrcode']);
 
 // Carregando os controlladores
 require('./controller/main-controller.js');
-require('./controller/comparador-controller.js');
-require('./controller/games-controller.js');
-require('./controller/compare-controller.js');
+require('./controller/tx-controller.js');
 
 // Carregando filtros
 
 // Carregando factories
 
 // Configurações da aplicação
-app.config(['$locationProvider', '$routeProvider', 'marked', function($locationProvider, $routeProvider, marked){
+app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider){
     $locationProvider.hashPrefix('!');
-
-    marked.setOptions({
-        gfm: true
-    });
 
     $routeProvider.when('/', {
         controller : 'MainCtrl',
-        templateUrl : '/view/site/main.html'
-    }).when('/compare/:slug1/:slug2', {
-        controller : 'CompareCtrl',
-        templateUrl : '/view/site/compare.html'
-    }).when('/news', {
-        controller : 'NewsCtrl',
-        templateUrl : '/view/site/news.html'
-    }).when('/news/:slug', {
-        controller : 'NewsCtrl',
-        templateUrl : '/view/site/news-view.html'
-    }).when('/games', {
-        controller : 'GamesCtrl',
-        templateUrl : '/view/site/games.html'
-    }).when('/game/:slug', {
-        controller : 'GameCtrl',
-        templateUrl : '/view/site/games.html'
-    }).when('/reviews', {
-        controller : 'ReviewsCtrl',
-        templateUrl : '/view/site/reviews.html'
-    }).when('/review/:slug', {
-        controller : 'ReviewCtrl',
-        templateUrl : '/view/site/reviews.html'
-    }).when('/hardwares', {
-        controller : 'HardwaresCtrl',
-        templateUrl : '/view/site/reviews.html'
-    }).when('/hardware/:slug', {
-        controller : 'HardwareCtrl',
-        templateUrl : '/view/site/reviews.html'
-    }).when('/about', {
-        controller : 'AboutCtrl',
-        templateUrl : '/view/site/about.html'
-    }).when('/contact', {
-        controller : 'ContactCtrl',
-        templateUrl : '/view/site/contact.html'
+        templateUrl : '/view/main.html'
+    }).when('/tx/:code', {
+        controller : 'TxCtrl',
+        templateUrl : '/view/tx.html'
     });
 }]);
 

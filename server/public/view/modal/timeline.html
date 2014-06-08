@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h3 class="modal-title">Criar uma timelinhe</h3>
+</div>
+<div class="modal-body">
+    <div ng-show="!login">
+        <p>Faça o login antes de criar uma timeline</p>
+    </div>
+    <div class="row" ng-show="login">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" class="form-control" ng-model="timeline.title" placeholder="Título do evento">
+            </div>
+            <div class="form-group">
+                <label>Local</label>
+                <input type="text" class="form-control" ng-model="timeline.local" placeholder="Local da realização do evento">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="salvarTimeline()">Criar</button>
+    <button class="btn btn-warning" ng-click="$close()">Fechar</button>
+</div>

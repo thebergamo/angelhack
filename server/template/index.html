@@ -1,241 +1,57 @@
-
 <!DOCTYPE html>
-<html class=" js cssanimations csstransitions" lang="en">
+<html>
     <head>
-        <title>BitiFy</title>
+        <title>Bitify</title>
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="BitiFy" name="description">
+        <meta content="" name="description">
         <meta content="@ThamaraHessel" name="author">
-        <link href="assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
-        <link href="assets/css/headers/header1.css" rel="stylesheet">
-        <link href="assets/css/responsive.css" rel="stylesheet">
-        <link href="favicon.ico" rel="shortcut icon">
-        <link href="assets/css/pages/page_job.css" rel="stylesheet">
-        <link href="assets/css/pages/upbox.css" rel="stylesheet">
-        <link href="assets/plugins/flexslider/flexslider.css" rel="stylesheet">
-        <link href="assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="assets/plugins/parallax-slider/css/parallax-slider.css" rel="stylesheet">
-        <link id="style_color" href="assets/css/themes/orange.css" rel="stylesheet">
-        <link id="style_color-header-1" href="assets/css/themes/headers/header1-orange.css" rel="stylesheet">
-        <script type="text/javascript" src="assets/plugins/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/jquery-migrate-1.2.1.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
-    <body class="">
-
-        <div class="header">
-            <div class="navbar navbar-default" role="navigation">
-                <div class="container">
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="container " >
                     <div class="navbar-header">
-                        <button class="navbar-toggle" data-target=".navbar-responsive-collapse" data-toggle="collapse" type="button">
-                            <span class="sr-only"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.html">
-                            <img id="logo-header" alt="Logo" src="assets/img/coins.png">
-
+                        <a href="#!/" class="navbar-brand">
+                            <img src="/img/bitcoin_icon.png" style="height: 40px; width: auto;"/>
+                            <div>Bitify</div>
                         </a>
                     </div>
-                    <div class="collapse navbar-collapse navbar-responsive-collapse">
-                        <ul class="nav navbar-nav navbar-right" style="margin-top:65px">
-                            <li class="active">
-                                <a class="" data-close-others="true"   href="index.html">
-                                    Home
-                                </a>
+                    <div class="collapse navbar-collapse" >
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="#!/">Quem Somos</a>
                             </li>
                             <li class="">
-                                <a class="" data-close-others="false"   href="empresa.html">
-                                    A Bitify
-                                </a>
-                            </li>
-                            <li class="">
-                                <a class="" data-close-others="false"   href="contatos.html">
-                                    Contatos
-                                </a>
+                                <a href="#!/">Faça parte</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
+        </nav>
+        <div class="container bottom-fix" ng-view>
+
         </div>
-        <div class="job-img margin-bottom-30">
-            <div class="job-description">
-                <h2>Discover the BitCoins on BitiFY ...</h2>
-            </div>
-            <div class="job-img-inputs">
-                <div class="container">
-
-                    <form name="aaaa" id="bbbb" method="post" action="transacao.html" >
-                        <div class="row">
-                            <div class="col-sm-4 md-margin-bottom-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="icon-money"></i></span>
-                                    <input type="text" class="form-control" placeholder="CAMPO 1">
-                                </div>
-                            </div>
-                            <div class="col-sm-4 md-margin-bottom-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="icon-money"></i></span>
-                                    <input type="text" class="form-control" placeholder="Campo 2">
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <button class="btn-u btn-block btn-u-dark" type="submit"> Cadastrar Transação</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="service">
-                        <i class="icon-cogs service-icon"></i>
-                        <div class="desc">
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet justo pretium, fermentum tellus id, consequat orci. Sed vulputate vulputate mauris non accumsan. Maecenas ullamcorper convallis est in vestibulum. Nulla pretium nisi in eros luctus, vel fringilla ante malesuada.</p>                        </div>
+        <footer>
+            <nav class="navbar navbar-inverse navbar-bottom">
+                <div class="navbar-inner navbar-content-center">
+                    <div class="container " >
+                        <div class="footer-div-center">We <span>♥</span> Bitcoins. <strong>Bitify</strong> - 2014</div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="service">
-                        <div class="desc">
-                            <h3><i class="icon-cogs service-icon"></i>Lorem ipsum dolor sit amet</h3><br>
-                            <br>
-                            <div class="container">
-                                <div class="col-md-offset-4">
-                                    <form name="abc" id="dfg" method="post" action="#" >
-                                        <label>Campo X <span class="color-red">*</span></label>
-                                        <div class="row margin-bottom-20">
-                                            <div class="col-md-7 col-md-offset-0">
-                                                <input type="text" class="form-control" name="campoX">
-                                            </div>
-                                        </div>
-                                        <label>Campo X <span class="color-red">*</span></label>
-                                        <div class="row margin-bottom-20">
-                                            <div class="col-md-7 col-md-offset-0">
-                                                <input type="text" class="form-control" name="campoX">
-                                            </div>
-                                        </div>
-
-
-                                        <p><button type="submit" class="btn-u">Enviar</button></p>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="service">
-                        <i class="icon-cogs service-icon"></i>
-                        <div class="desc">
-                            <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet justo pretium, fermentum tellus id, consequat orci. Sed vulputate vulputate mauris non accumsan. Maecenas ullamcorper convallis est in vestibulum. Nulla pretium nisi in eros luctus, vel fringilla ante malesuada.</p>                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row margin-bottom-40">
-                <div class="col-md-4 col-sm-6">
-                    <div class="servive-block servive-block-sea service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x icon-money"></i>
-                        <h2 class="heading-md">Discover</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="servive-block servive-block-red service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x icon-line icon-fire"></i>
-                        <h2 class="heading-md">Discover</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-12">
-                    <div class="servive-block servive-block-blue service-or">
-                        <div class="service-bg"></div>
-                        <i class="icon-custom icon-color-light rounded-x icon-line icon-rocket"></i>
-                        <h2 class="heading-md">Discover</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="headline">
-                            <h4>Contatos</h4>
-                        </div>
-                        <address class="md-margin-bottom-40">
-                            São Paulo, SP
-                            <br>
-                            (11) 9999-9999
-
-                            <br>
-                            E-mail:
-                            <a class="" href="mailto:email@gmail.com">email@gmail.com</a>
-                        </address>
-                    </div>
-                    <div class="col-md-5"></div>
-                    <div class="col-md-3">
-                        <a href="index.html">
-                            <img id="logo-footer" class="pull-right" alt="" src="assets/img/coins.png">
-                        </a>
-                        <div class="row pull-right">
-                            <p class="copyright-space" style="font-size:10px">
-                                2014 © Bitify. ALL Rights Reserved.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-        </div>
-        <!-- JS Global Compulsory -->
-
-        <script type="text/javascript" src="assets/plugins/hover-dropdown.min.js"></script>
-        <script type="text/javascript" src="assets/plugins/back-to-top.js"></script>
-        <!-- JS Implementing Plugins -->
-        <script type="text/javascript" src="assets/plugins/flexslider/jquery.flexslider-min.js"></script>
-        <script type="text/javascript" src="assets/plugins/parallax-slider/js/modernizr.js"></script>
-        <script type="text/javascript" src="assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
-        <!-- JS Page Level -->
-        <script type="text/javascript" src="assets/js/app.js"></script>
-        <script type="text/javascript" src="assets/js/pages/index.js"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/g/angularjs@1.2(angular.min.js+angular-route.min.js),angular.bootstrap@0.11(ui-bootstrap-tpls.min.js)"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-                App.init();
-                App.initSliders();
-                Index.initParallaxSlider();
-            });
-        </script>
-        <!--[if lt IE 9]>
-            <script src="assets/plugins/respond.js"></script>
-        <![endif]-->
+            </nav>
+        </footer>
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="/js/bundle.js"></script>
-
     </body>
 </html>

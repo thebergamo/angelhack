@@ -13,7 +13,6 @@ var http = require('http');
 var server = http.createServer(app);
 var io = require('socket.io')(server);
 var ioRedis = require('socket.io-redis');
-var socket = require(__dirname + '/service/socket');
 
 io.adapter(ioRedis(config.redis));
 
@@ -35,6 +34,7 @@ io.on('connection', function(socket){
 
 // Carregando todas os models
 var models = requi(__dirname + '/model');
+var socket = require(__dirname + '/service/socket');
 
 // Carregando todas as APIs
 requi(__dirname + '/api');

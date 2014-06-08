@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><span class="glyphicon glyphicon-star"></span>  Status de {{tx.title}}</h3>
+                <div class="panel panel-default">
+                    <div class="list-group" ng-show="messages.length">
+                        <p href="#" class="list-group-item" ng-repeat="msg in messages">
+                            <strong>{{msg.date | amDateFormat:'DD/MM/YY hh:mm'}}</strong> {{msg.message}}
+                            <span class="label label-primary" style="float: right;" ng-show="msg.sender == 'buyer'">Comprador</span>
+                            <span class="label label-success" style="float: right;" ng-show="msg.sender == 'seller'">Vendedor</span>
+                            <span class="label label-default" style="float: right;" ng-show="msg.sender == 'system'">Bitify</span>
+                        </p>
+                    </div>
+                    <div class="list-group" ng-show="!messages.length">
+                        <a href="#" class="list-group-item">Aguardando pagamento por parte do comprador.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3><span class="glyphicon glyphicon-qrcode"></span> Pagamento</h3>
+                <div class="well">
+                    <qrcode version="3" error-correction-level="M" size="220" data="bitcoin:{{tx.wallet.hash}}"></qrcode>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <h3><span class="glyphicon glyphicon-list"></span> Dados gerais</h3>
+                <div class="well">
+                    <strong>Data de início</strong><br /> {{tx.date | amDateFormat:'DD/MM/YY hh:mm'}}<br /><br />
+                    <strong>Vendedor:</strong><br /> {{tx.seller.name}}<br /><br />
+                    <strong>E-mail:</strong><br /> {{tx.seller.email}}<br /><br />
+                    <strong>Status:</strong><br /> {{tx.status}}<br /><br />
+                    <strong>Valr:</strong><br /> BTC {{tx.value}}<br /><br />
+                    <strong>Carteira:</strong><br /> <a href="bitcoin:{{tx.wallet.hash}}" class="trim">{{tx.wallet.hash}}</a><br />
+                </div>
+            </div>
+            <div class="col-lg-12" ng-show="type">
+                <h3><span class="glyphicon glyphicon-bullhorn"></span> Administração</h3>
+                <div class="well">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mensagem</label>
+                        <input type="text" class="form-control" ng-model="message.message" placeholder="">
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block" ng-click="sendMessage()">Enviar mensagem</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'seller'" ng-click="finalizar('O comprador marcou a tranzação como finalizada.')">Finalizar</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" ng-show="type == 'buyer'" ng-click="finalizar('O vendedor marcou a tranzação como finalizada.')">Finalizar</button>
+                </div>
+            </div>
+            <div class="col-lg-12" ng-hide="type">
+                <h3><span class="glyphicon glyphicon-bullhorn"></span> Login</h3>
+                <div class="well">
+                    <p>Digite o código que você recebeu por e-mail</p>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Senha</label>
+                        <input type="password" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Função</label>
+                        <select class="form-control" ng-model="loginType">
+                            <option value="buyer">Comprador</option>
+                            <option value="seller">Vendedor</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg btn-block" ng-click="doLogin()">Entrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

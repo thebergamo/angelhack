@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well">
+            <h1 style="color: black">Proteção para sua compra e venda em BTC</h1>
+            <hr />
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <h3><span class="glyphicon glyphicon-star"></span>  Nova transação</h3>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.seller.name" placeholder="Seu nome" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.seller.email" placeholder="Seu e-mail" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.seller.wallet" placeholder="Sua carteira BTC" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.value" placeholder="Valor da compra em BTC" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.title" placeholder="Nome do produto ou serviço" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="transaction.buyer.email" placeholder="E-mail do comprador" />
+                </div>
+            </div>
+        </div>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg btn-xlg" ng-click="newTransaction()">
+                <span class="glyphicon glyphicon-ok"></span> Criar Transação
+            </button>
+        </p>
+    </div>
+    <div class="col-lg-6">
+        <h3><span class="glyphicon glyphicon-th-list"></span>  Verificar transação</h3>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div style="height: 227px; overflow-y: hidden; border-radius: 10px;">
+                    <img src="/img/bitcoin.jpg" />
+                </div><br />
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="search" placeholder="Identificação da transação" />
+                </div>
+            </div>
+        </div>
+        <p>
+            <button type="button" class="btn btn-primary btn-lg btn-xlg" ng-click="viewTransaction()">
+                <span class="glyphicon glyphicon-search"></span> Verificar
+            </button>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <h3><span class="glyphicon glyphicon-bullhorn"></span> Inspiração</h3>
+        <div class="well">Participe de um evento, jogo de futebol, manifestação, jantar com os amigos, festa da escola ou qualquer outro evento que você gostaria de contar aos seus amigos.</div>
+    </div>
+    <div class="col-lg-4">
+        <h3><span class="glyphicon glyphicon-refresh"></span> Atualização</h3>
+        <div class="well">Faça o seu logim e crie a timeline para o seu evento, você poderá mandar notícias, fotos, vídeos e áudio poara manter os seus seguidores atualizados.</div>
+    </div>
+    <div class="col-lg-4">
+        <h3><span class="glyphicon glyphicon-heart"></span> Estrelado</h3>
+        <div class="well">Colete o resultado dos seus eforços em forma de carinho e admiração de todas as pessoas que seguem suas timelines e eventos. A Vaquinha Mimosa é a sua melhor amiga.</div>
+    </div>
+</div>

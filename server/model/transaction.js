@@ -55,18 +55,17 @@ closed - transação finalizada;
 
 */
 
-transactionSchema.post('save', function(next){
-    if('begin' === this.status)
-        sendgrid(this._id, 'begin');
-
+transactionSchema.post('save', function(doc){
+    if('begin' === doc.status)
+        sendgrid(doc._id, 'begin');
 });
 
 
-
 transactionSchema.pre('save', function(next){
-    if(!this._id)
+    if(!this.isNew)
         return next();
 
+    this.status = 'begin';
     var password = String(new Date().getTime());
     var privateKey = bitcore.util.sha256(password);
     var code = generateCode(10);
@@ -78,7 +77,7 @@ transactionSchema.pre('save', function(next){
     key.regenerateSync();
 
     var hash = bitcore.util.sha256ripe160(key.public);
-    var version = bitcore.networks.livenet.addressVersion;
+    var version = bitcore.networks.testnet.addressVersion;
 
     var addr = new bitcore.Address(version, hash);
 

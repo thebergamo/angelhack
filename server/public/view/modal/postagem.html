@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h3 class="modal-title">Criar uma postagem</h3>
+</div>
+<div class="modal-body">
+    <div ng-show="!login">
+        <p>Faça o login antes de criar uma postagem</p>
+    </div>
+    <div class="row" ng-show="login">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>Postagem</label>
+                <textarea class="form-control" ng-model="postagem.text" placeholder="Insira o conteúdo da sua postagem"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="salvarPostagem()">Criar</button>
+    <button class="btn btn-warning" ng-click="$close()">Fechar</button>
+</div>
