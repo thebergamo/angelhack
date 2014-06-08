@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var sendgrid = require(__dirname + '/../lib/sendgrid');
+var config = require(__dirname + '/../config/general.json');
+var emitter = require('socket.io-redis')(config.redis);
 
 var messageSchema = new Schema({
     date: {
@@ -19,7 +21,6 @@ messageSchema.post('save', function(next){
     var self = this;
 
     sendgrid(this.transaction_id, 'update', this._id);
-
 });
 
 messageSchema.post('save', function(next){
@@ -34,18 +35,14 @@ messageSchema.post('save', function(next){
                 throw err;
 
             if(!docs.length)
-                return next();
+                return;
 
             Transaction.findByIdAndUpdate(self.transaction_id, { $set: { status: 'closed' }});
 
             sendgrid(self.transaction_id, 'close');
-
-            /*
-            Liberar bitcoin.
-            */
     });
 
-    //next();
+    emitter.in(this.transaction_id).emit('update');
 });
 
 
