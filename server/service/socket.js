@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 var io = require('socket.io-emitter')(config.redis);
 var Transaction = mongoose.model('transaction');
 var Message = mongoose.model('message');
+var emitter = require('socket.io-emitter')(config.redis);
 
 var bitQueue = async.queue(function(tx, callback){
     Transaction.findOne({'wallet.hash' : tx.address}, function(err, doc){
@@ -18,7 +19,7 @@ var bitQueue = async.queue(function(tx, callback){
         doc.buyer.wallet = tx.from;
 
         //pagamento processando;
-        
+
         doc.status = 'recive';
 
 
@@ -31,6 +32,7 @@ var bitQueue = async.queue(function(tx, callback){
 
 
             io.to(doc.code).emit('update');
+            emitter.to(doc.code).emit('update');
             callback();
         });
     });
