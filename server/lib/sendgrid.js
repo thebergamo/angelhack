@@ -1,12 +1,12 @@
 var sendgrid = require('sendgrid')('bovifi', 'bovifi');
 var mongoose = require('mongoose');
 var config = require(__dirname + '/../config/general.json');
-function mailUpdate(id, id_mesage){
+function mailUpdate(id, id_message){
     //pegar model Transaction para pegar emails.
     //pegar model Message para enviar o update;
 
-    var Transaction = mogoose.model('transaction');
-    var Message = mogoose.model('message');
+    var Transaction = mongoose.model('transaction');
+    var Message = mongoose.model('message');
 
     Transaction.findById(id, function (err, doc) {
         if (err)
@@ -21,21 +21,12 @@ function mailUpdate(id, id_mesage){
             var urlTrack = config.url+'/transaction/'+doc.code;
 
             body += '<h2>Atualização a vista!!.</h2><br />';
-            body += '<p>Sua transação foi atualizada.</p>';
+            body += '<p>Sua transação referente ao pedido: '+doc.title+'(<a href="'+urlTrack+'">'+doc.code+'</a>) foi atualizada.</p>';
             body += '<p>Mensagem:</p>';
             body += '<p><strong>'+message.message+'</strong></p>';
             body += '<br /><br /><br />';
             body += '<p>Para conferir ou enviar uma nova atualização também <a href="#">clique aqui</a>.</p>';
             body += '<br /><br />';
-
-            if(message.sender === "buyer"){
-                email.addTo(doc.seller.email);
-            }else if(message.sender === "seller"){
-                email.addTo(doc.buyer.email);
-            }else {
-                email.addTo(doc.seller.email);
-                email.addTo(doc.buyer.email);
-            }
 
             email.setFrom(config.delivery.sender);
 
@@ -44,6 +35,20 @@ function mailUpdate(id, id_mesage){
             email.setText('Enviado via SendGrid!');
 
             email.setHtml(body);
+
+            if(message.sender === "buyer"){
+                console.log('buyer');
+                email.addTo(doc.seller.email);
+            }else if(message.sender === "seller"){
+                console.log('seller');
+                email.addTo(doc.buyer.email);
+            }else if(message.sender === "system") {
+                console.log('system');
+                email.to = [doc.seller.email,doc.buyer.email];
+                //email.addTo(doc.buyer.email);
+            }
+
+
 
             sendgrid.send(email, function(err, json) {
                 if(err)
@@ -129,8 +134,8 @@ function mailBegin(id){
 function mailExceed(id, id_message){
     //pegar model Transaction para pegar emails
     //pegar model Message para ver quem excedeu o tempo da carteira.
-    var Transaction = mogoose.model('transaction');
-    var Message = mogoose.model('message');
+    var Transaction = mongoose.model('transaction');
+    var Message = mongoose.model('message');
 
     Transaction.findById(id, function (err, doc) {
         if (err)
@@ -179,7 +184,7 @@ function mailExceed(id, id_message){
 function mailClose(id){
     //pegar model Transaction para pegar emails e avisar que a transação foi
     //concluida com sucesso.
-    var Transaction = mogoose.model('transaction');
+    var Transaction = mongoose.model('transaction');
 
     Transaction.findById(id, function (err, doc) {
         if (err)
@@ -226,7 +231,7 @@ module.exports = function(id, code, id_message) {
     }else if(code === 'begin'){
         mailBegin(id)
     }else if(code == 'exceed'){
-        mailExceed(id, id_mesage);
+        mailExceed(id, id_message);
     }else{
         mailClose(id);
     }

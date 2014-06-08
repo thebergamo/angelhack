@@ -27,7 +27,9 @@ var transactionSchema = new Schema({
     code: String,
     wallet: {
         hash: String,
-        key: String
+        key: String,
+        block_trans_id: String,
+        confirmations: String
     },
     seller: {
         email: String,
