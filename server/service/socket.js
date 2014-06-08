@@ -19,17 +19,30 @@ var bitQueue = async.queue(function(tx, callback){
         doc.buyer.wallet = tx.from;
 
         //pagamento processando;
+        if(tx.confirmations < 6 && doc.status != 'recive'){
+            doc.status = 'recive';
+            var m = new Message({ sender: 'system', message: 'Processando valores...', transaction_id: doc._id, finished: false });
 
-        doc.status = 'recive';
+            m.save(function(err){
+                if(err)
+                    throw err;
+            });
 
+        }
 
+        if(tx.confirmations >= 6 && doc.status != 'paid'){
+            doc.status = 'paid';
+            var m = new Message({ sender: 'system', message: 'Pagamento confirmado!', transaction_id: doc._id, finished: false });
+
+            m.save(function(err){
+                if(err)
+                    throw err;
+            });
+        }
 
         doc.save(function(err){
             if(err)
                 throw err;
-
-            //verifica se tx.confirmations == 6
-
 
             io.to(doc.code).emit('update');
             emitter.to(doc.code).emit('update');
