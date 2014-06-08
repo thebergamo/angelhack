@@ -190,6 +190,8 @@ function mailClose(id){
         if (err)
             throw err;
 
+        console.log(id);
+
         var email= new sendgrid.Email();
         var body = "";
 
@@ -200,8 +202,7 @@ function mailClose(id){
         body += '<p>Esperamos vocês em uma proxima transação!</p>';
 
 
-        email.addTo(doc.seller.email);
-        email.addTo(doc.buyer.email);
+        email.to = [doc.seller.email,doc.buyer.email];
 
         email.setFrom(config.delivery.sender);
 
@@ -232,7 +233,7 @@ module.exports = function(id, code, id_message) {
         mailBegin(id)
     }else if(code == 'exceed'){
         mailExceed(id, id_message);
-    }else{
+    }else if(code == 'close'){
         mailClose(id);
     }
 

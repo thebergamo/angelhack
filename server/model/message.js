@@ -22,7 +22,7 @@ messageSchema.post('save', function(next){
 
 });
 
-messageSchema.pre('save', function(next){
+messageSchema.post('save', function(next){
 
     var Message = mongoose.model('message');
     var Transaction = mongoose.model('transaction');
@@ -33,20 +33,17 @@ messageSchema.pre('save', function(next){
             if(err)
                 throw err;
 
-
-            if(!docs.lenght)
+            if(!docs.length)
                 return next();
 
-            Transaction.findByIdAndUpdate(this.transaction_id, { $set: { status: 'closed' }});
+            Transaction.findByIdAndUpdate(self.transaction_id, { $set: { status: 'closed' }});
 
-
-            sendgrid(this.transaction_id, 'close');
+            sendgrid(self.transaction_id, 'close');
 
 
             /*
             Liberar bitcoin.
             */
-            next();
     });
 
     //next();
